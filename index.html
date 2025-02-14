@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+</head>
+<body>
+    <div class="header">Etch-a-Sketch!</div>
+    <div class="sidebar">
+        <input type="color" id="color-picker" value="black">
+        <button id="erase">Erase</button>
+        <button id="clear-board">Clear board</button>
+        <div class="change-grid-container">
+            <div>Change grid</div>
+            <div id="grid-value">16x16</div>
+            <input type="range" min="1" max="32" value="16" class="slider">
+        </div>
+    </div>
+    <div class="container"></div>
+    
+</body>
+</html>
