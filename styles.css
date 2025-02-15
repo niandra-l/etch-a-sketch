@@ -87,7 +87,7 @@ button {
     background-color: azure;
 }
 
-.gridCol {
+.gridCell {
     flex:1;
     border-top:lightsalmon 1px solid;
 }
