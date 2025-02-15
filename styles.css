@@ -17,13 +17,14 @@ h1 {
 
 main {
     display:flex;
-    gap:12px;
+    gap:32px;
 
 }
 
 .sidebar {
     display:flex;
     flex-direction:column;
+    justify-content: center;
     gap:24px;
     font-size:18px;
     
@@ -78,7 +79,17 @@ button {
 }
 
 .container {
-    border:red 5px solid;
+    border:lightsalmon 4px solid;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:480px;
+    height:480px;
+}
+
+.container div {
+    height:100%;
+    border: lightsalmon 1px solid;
 }
 
 #color-picker {
