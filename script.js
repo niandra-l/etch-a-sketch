@@ -1,16 +1,23 @@
 const container = document.querySelector(".container");
+let cells = [];
+
+let isErasing = false;
+const defaultColor = "azure";
 
 function makeGrid(x) {
+    clear();
     for (i=0; i<x; i++) {
         let row = document.createElement("div");
         container.appendChild(row).className="gridRow";
         for (let j=0; j<x; j++) {
-            col = document.createElement("div");
-            row.appendChild(col).className="gridCol";  
-        }
-    }
+            let cell = document.createElement("div");
+            row.appendChild(cell).className="gridCell"; 
 
-}
+        };
+    };
+    cells = document.querySelectorAll(".gridCell");
+    colorGrid();
+};
 
 makeGrid(16);
 
@@ -20,57 +27,54 @@ const gridValue = document.querySelector("#grid-value");
 
 slider.onchange = function () {
     gridValue.textContent = this.value + "x" + this.value;
-    clear();
     makeGrid(this.value);
-}
+};
 
 function clear() {
     container.textContent="";
-}
+};
 
 //erase button
-let cells = document.querySelectorAll(".gridCol");
-
 function erase() {
-        cells.forEach((element) => {
-            element.addEventListener("mouseover", e => {
-            e.target.style.backgroundColor = defaultColor;
-        })
-    })
-
-}
+    isErasing = true;
+};
 
 const eraseBtn = document.querySelector("#erase-button");
 eraseBtn.addEventListener("click", erase);
 
-
 // clear board button
 function clearBoard() {
-    cells.forEach((element) => {
+    const cells = document.querySelectorAll(".gridCell");
+    cells.forEach(element => {
         element.style.backgroundColor = defaultColor;
-    })
-
-}
+    });
+};
 
 const clearBtn = document.querySelector("#clear-button");
 clearBtn.addEventListener("click", clearBoard);
 
-//set background color change when mouseover
+//set color for painting 
 const colorPicker = document.querySelector("#color-picker");
-const defaultColor = "azure";
 let colorPicked = "";
 
 function newColor() {
     colorPicked=this.value;
-    cells.forEach((element) => {
-        element.addEventListener("mouseover", e => {
-        e.target.style.backgroundColor = colorPicked;
-        })
-    })
-}
+    isErasing = false;
+};
 
 colorPicker.addEventListener("change", newColor);
 
+function colorGrid() {
+    cells.forEach(cell => {
+        cell.addEventListener("mouseover", (e) => {
+            if (isErasing) {
+                e.target.style.backgroundColor = defaultColor;
+            } else if (colorPicked) {
+                e.target.style.backgroundColor = colorPicked;
+            }
+        });
+    });
+}
 
 
 
