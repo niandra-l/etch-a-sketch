@@ -12,6 +12,19 @@ function makeGrid(x) {
 
 }
 
-
 makeGrid(16);
+
+const slider = document.querySelector(".slider");
+const gridValue = document.querySelector("#grid-value");
+
+slider.onchange = function () {
+    gridValue.textContent = this.value + "x" + this.value;
+    clear();
+    makeGrid(this.value);
+}
+
+function clear() {
+    container.textContent="";
+}
+
 
