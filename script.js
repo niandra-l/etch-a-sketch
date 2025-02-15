@@ -28,9 +28,24 @@ function clear() {
     container.textContent="";
 }
 
+//erase button
+let cells = document.querySelectorAll(".gridCol");
+
+function erase() {
+        cells.forEach((element) => {
+            element.addEventListener("mouseover", e => {
+            e.target.style.backgroundColor = "azure";
+        })
+    })
+
+}
+
+const eraseBtn = document.querySelector("#erase-button");
+eraseBtn.addEventListener("click", erase);
+
+
 // clear board button
 let rows = document.querySelectorAll(".gridRow");
-
 
 function clearBoard() {
     rows.forEach((element) => {
@@ -39,7 +54,7 @@ function clearBoard() {
 
 }
 
-const clearBtn = document.querySelector("#clear-board");
+const clearBtn = document.querySelector("#clear-button");
 clearBtn.addEventListener("click", clearBoard);
 
 
