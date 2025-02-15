@@ -34,7 +34,7 @@ let cells = document.querySelectorAll(".gridCol");
 function erase() {
         cells.forEach((element) => {
             element.addEventListener("mouseover", e => {
-            e.target.style.backgroundColor = "azure";
+            e.target.style.backgroundColor = defaultColor;
         })
     })
 
@@ -45,16 +45,32 @@ eraseBtn.addEventListener("click", erase);
 
 
 // clear board button
-let rows = document.querySelectorAll(".gridRow");
-
 function clearBoard() {
-    rows.forEach((element) => {
-        element.style.backgroundColor = "azure";
+    cells.forEach((element) => {
+        element.style.backgroundColor = defaultColor;
     })
 
 }
 
 const clearBtn = document.querySelector("#clear-button");
 clearBtn.addEventListener("click", clearBoard);
+
+//set background color change when mouseover
+const colorPicker = document.querySelector("#color-picker");
+const defaultColor = "azure";
+let colorPicked = "";
+
+function newColor() {
+    colorPicked=this.value;
+    cells.forEach((element) => {
+        element.addEventListener("mouseover", e => {
+        e.target.style.backgroundColor = colorPicked;
+        })
+    })
+}
+
+colorPicker.addEventListener("change", newColor);
+
+
 
 
