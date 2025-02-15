@@ -12,31 +12,28 @@ h1 {
     margin:64px;
     color:mediumaquamarine;
     text-shadow: 1px 1px 2px darkcyan;
-
+    font-size:42px;
 }
 
 main {
     display:flex;
-    gap:32px;
-
+    gap:42px;
 }
 
 .sidebar {
     display:flex;
     flex-direction:column;
     justify-content: center;
-    gap:24px;
-    font-size:18px;
-    
+    gap:32px;
+    font-size:18px;    
 }
+
 button {
     background-color: lightsalmon;
     border:darksalmon 2px solid;
     border-radius: 5px;
     cursor:pointer;
-    font-family:inherit;
-    font-weight:inherit;
-    font-size:inherit;
+    font:inherit;
     padding:4px;
 }
 
@@ -45,7 +42,6 @@ button {
     height: 12px;
     border-radius: 5px;  
     background: lightsalmon;
-    
 }
 
 .slider::-webkit-slider-thumb {
@@ -70,10 +66,9 @@ button {
     background-color:azure;
     border-radius: 5px;
     height:36px
-
 }
 
-.change.grid div {
+.change-grid div {
     padding:8px; 
 }
 
