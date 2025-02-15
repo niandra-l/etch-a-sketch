@@ -14,6 +14,7 @@ function makeGrid(x) {
 
 makeGrid(16);
 
+//change grid on slider change
 const slider = document.querySelector(".slider");
 const gridValue = document.querySelector("#grid-value");
 
@@ -26,5 +27,19 @@ slider.onchange = function () {
 function clear() {
     container.textContent="";
 }
+
+// clear board button
+let rows = document.querySelectorAll(".gridRow");
+
+
+function clearBoard() {
+    rows.forEach((element) => {
+        element.style.backgroundColor = "azure";
+    })
+
+}
+
+const clearBtn = document.querySelector("#clear-board");
+clearBtn.addEventListener("click", clearBoard);
 
 
